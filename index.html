@@ -51,10 +51,6 @@
             background-color: #b71c1c;
         }
 
-        .logo-icon {
-            font-size: 24px;
-        }
-
         nav ul {
             display: flex;
             list-style: none;
@@ -126,6 +122,28 @@
             padding-bottom: 20px;
         }
 
+        /* Описание компании */
+        .company-description {
+            background-color: #f5f5f5;
+            padding: 40px;
+            border-radius: 8px;
+            border-left: 5px solid #d32f2f;
+            margin-bottom: 60px;
+            line-height: 1.8;
+            font-size: 16px;
+            color: #333333;
+        }
+
+        .company-description h3 {
+            color: #d32f2f;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .company-description p {
+            margin-bottom: 15px;
+        }
+
         /* Сетка товаров */
         .products-grid {
             display: grid;
@@ -153,16 +171,35 @@
         }
 
         .product-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-            display: inline-block;
-            animation: float 3s ease-in-out infinite;
-            cursor: pointer;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            overflow: hidden;
             transition: all 0.3s ease;
+            animation: float 3s ease-in-out infinite;
         }
 
-        .product-icon:hover {
-            transform: scale(1.1);
+        .product-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-icon svg {
+            width: 60px;
+            height: 60px;
+            fill: #d32f2f;
+        }
+
+        .product-card:hover .product-icon {
+            animation: bounce 0.6s ease-in-out;
+            border-color: #d32f2f;
         }
 
         @keyframes float {
@@ -172,10 +209,6 @@
             50% {
                 transform: translateY(-10px);
             }
-        }
-
-        .product-card:hover .product-icon {
-            animation: bounce 0.6s ease-in-out;
         }
 
         @keyframes bounce {
@@ -421,7 +454,7 @@
     <!-- Навигация -->
     <nav>
         <div class="nav-container">
-            <div class="logo">
+            <div class="logo" onclick="showSection('home')">
                 ГЛАВНАЯ
             </div>
             <ul>
@@ -442,35 +475,83 @@
         </div>
 
         <div class="container main-content">
+            <!-- Описание компании -->
+            <div class="company-description">
+                <h3>О нашей компании</h3>
+                <p>Добро пожаловать в нашу компанию! Мы являемся одним из ведущих поставщиков высококачественных промышленных запчастей и услуг на российском рынке. С более чем 15-летним опытом работы, мы завоевали доверие тысяч клиентов благодаря надежности, качеству и профессионализму.</p>
+                <p>Наша компания специализируется на поставке подшипников, муфт, цепей, крепежных элементов, смазочных материалов и электротехнических изделий от ведущих мировых производителей. Каждый товар проходит строгий контроль качества перед отправкой клиенту.</p>
+                <p>Мы предоставляем не только товары, но и полный спектр услуг: консультации по выбору, техническую поддержку, доставку по всей стране и монтаж на объекте. Наша цель - быть надежным партнером для вашего бизнеса, обеспечивая стабильность и эффективность ваших операций.</p>
+            </div>
+
             <h2 class="section-title">Избранные товары</h2>
             <div class="products-grid">
                 <div class="product-card" onclick="showCategoryProducts('podshipniki')">
-                    <div class="product-icon">🎯</div>
+                    <div class="product-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="3"/>
+                            <circle cx="50" cy="50" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="50" cy="50" r="8" fill="currentColor"/>
+                        </svg>
+                    </div>
                     <h3>Подшипники</h3>
                     <p>Высокое качество и надежность в работе</p>
                 </div>
                 <div class="product-card" onclick="showCategoryProducts('mufty')">
-                    <div class="product-icon">⚙️</div>
+                    <div class="product-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="20" y="35" width="15" height="30" fill="currentColor"/>
+                            <rect x="65" y="35" width="15" height="30" fill="currentColor"/>
+                            <rect x="35" y="40" width="30" height="20" fill="currentColor"/>
+                            <circle cx="50" cy="50" r="5" fill="#ffffff"/>
+                        </svg>
+                    </div>
                     <h3>Муфты</h3>
                     <p>Оригинальные компоненты для всех моделей</p>
                 </div>
                 <div class="product-card" onclick="showCategoryProducts('cepi')">
-                    <div class="product-icon">🔗</div>
+                    <div class="product-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="30" cy="50" r="12" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="70" cy="50" r="12" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <rect x="42" y="48" width="16" height="4" fill="currentColor"/>
+                            <path d="M 35 42 Q 50 30 65 42" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M 35 58 Q 50 70 65 58" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
                     <h3>Цепи и Ремни</h3>
                     <p>Быстрая доставка и гарантия качества</p>
                 </div>
                 <div class="product-card" onclick="showCategoryProducts('krepezh')">
-                    <div class="product-icon">⚡</div>
+                    <div class="product-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 50 15 L 70 30 L 65 50 L 70 70 L 50 85 L 30 70 L 35 50 L 30 30 Z" fill="currentColor"/>
+                            <circle cx="50" cy="50" r="8" fill="#ffffff"/>
+                        </svg>
+                    </div>
                     <h3>Крепежные элементы</h3>
                     <p>Полный ассортимент для всех типов конструкций</p>
                 </div>
                 <div class="product-card" onclick="showCategoryProducts('smazi')">
-                    <div class="product-icon">🛢️</div>
+                    <div class="product-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 40 20 L 60 20 L 65 45 Q 65 65 50 75 Q 35 65 35 45 Z" fill="currentColor"/>
+                            <line x1="45" y1="35" x2="55" y2="35" stroke="#ffffff" stroke-width="2"/>
+                            <line x1="45" y1="45" x2="55" y2="45" stroke="#ffffff" stroke-width="2"/>
+                            <line x1="45" y1="55" x2="55" y2="55" stroke="#ffffff" stroke-width="2"/>
+                        </svg>
+                    </div>
                     <h3>Смазочные материалы</h3>
                     <p>Премиум масла и смазки для оборудования</p>
                 </div>
                 <div class="product-card" onclick="showCategoryProducts('elektro')">
-                    <div class="product-icon">💡</div>
+                    <div class="product-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="40" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <rect x="40" y="55" width="20" height="20" fill="currentColor"/>
+                            <rect x="45" y="60" width="10" height="10" fill="#ffffff"/>
+                            <line x1="50" y1="75" x2="50" y2="85" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
                     <h3>Электротехнические изделия</h3>
                     <p>Двигатели и компоненты высочайшего качества</p>
                 </div>
@@ -524,32 +605,72 @@
             <h2 class="section-title">Популярные запчасти</h2>
             <div class="products-grid">
                 <div class="product-card" onclick="showCategoryProducts('podshipniki')">
-                    <div class="product-icon">🎯</div>
+                    <div class="product-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="3"/>
+                            <circle cx="50" cy="50" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="50" cy="50" r="8" fill="currentColor"/>
+                        </svg>
+                    </div>
                     <h3>Подшипники</h3>
                     <p>Высокоточные подшипники для различных механизмов</p>
                 </div>
                 <div class="product-card" onclick="showCategoryProducts('mufty')">
-                    <div class="product-icon">⚙️</div>
+                    <div class="product-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="20" y="35" width="15" height="30" fill="currentColor"/>
+                            <rect x="65" y="35" width="15" height="30" fill="currentColor"/>
+                            <rect x="35" y="40" width="30" height="20" fill="currentColor"/>
+                            <circle cx="50" cy="50" r="5" fill="#ffffff"/>
+                        </svg>
+                    </div>
                     <h3>Муфты</h3>
                     <p>Надежные муфты для передачи крутящего момента</p>
                 </div>
                 <div class="product-card" onclick="showCategoryProducts('cepi')">
-                    <div class="product-icon">🔗</div>
+                    <div class="product-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="30" cy="50" r="12" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="70" cy="50" r="12" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <rect x="42" y="48" width="16" height="4" fill="currentColor"/>
+                            <path d="M 35 42 Q 50 30 65 42" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M 35 58 Q 50 70 65 58" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
                     <h3>Цепи и ремни</h3>
                     <p>Прочные цепи и ремни производственного назначения</p>
                 </div>
                 <div class="product-card" onclick="showCategoryProducts('krepezh')">
-                    <div class="product-icon">⚡</div>
+                    <div class="product-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 50 15 L 70 30 L 65 50 L 70 70 L 50 85 L 30 70 L 35 50 L 30 30 Z" fill="currentColor"/>
+                            <circle cx="50" cy="50" r="8" fill="#ffffff"/>
+                        </svg>
+                    </div>
                     <h3>Крепежные элементы</h3>
                     <p>Полный ассортимент болтов, гаек и винтов</p>
                 </div>
                 <div class="product-card" onclick="showCategoryProducts('smazi')">
-                    <div class="product-icon">🛢️</div>
+                    <div class="product-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 40 20 L 60 20 L 65 45 Q 65 65 50 75 Q 35 65 35 45 Z" fill="currentColor"/>
+                            <line x1="45" y1="35" x2="55" y2="35" stroke="#ffffff" stroke-width="2"/>
+                            <line x1="45" y1="45" x2="55" y2="45" stroke="#ffffff" stroke-width="2"/>
+                            <line x1="45" y1="55" x2="55" y2="55" stroke="#ffffff" stroke-width="2"/>
+                        </svg>
+                    </div>
                     <h3>Смазочные материалы</h3>
                     <p>Качественные масла и смазки для оборудования</p>
                 </div>
                 <div class="product-card" onclick="showCategoryProducts('elektro')">
-                    <div class="product-icon">💡</div>
+                    <div class="product-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="40" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <rect x="40" y="55" width="20" height="20" fill="currentColor"/>
+                            <rect x="45" y="60" width="10" height="10" fill="#ffffff"/>
+                            <line x1="50" y1="75" x2="50" y2="85" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
                     <h3>Электротехнические изделия</h3>
                     <p>Двигатели, реле и другие электротехнические компоненты</p>
                 </div>
@@ -641,7 +762,7 @@
                 </div>
                 
                 <div class="contact-item">
-                    <strong>📍 Адрес:</strong><br>
+                    <strong>Адрес:</strong><br>
                     г. Ваш город, ул. Ваша улица, д. XX
                 </div>
 
@@ -836,18 +957,15 @@
         };
 
         function showSection(sectionId) {
-            // Скрываем все секции
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => section.classList.remove('active'));
 
-            // Показываем выбранную секцию
             const activeSection = document.getElementById(sectionId);
             if (activeSection) {
                 activeSection.classList.add('active');
                 window.scrollTo(0, 0);
             }
 
-            // Показываем главную при клике на логотип
             if (sectionId === 'home' || !sectionId) {
                 document.getElementById('home').classList.add('active');
             }
@@ -857,11 +975,9 @@
             const category = categoryData[categoryKey];
             if (!category) return;
 
-            // Устанавливаем название и описание категории
             document.getElementById('category-title').textContent = category.title;
             document.getElementById('category-description').textContent = category.description;
 
-            // Генерируем HTML товаров
             let html = '';
             category.products.forEach(product => {
                 const specsHTML = product.specs.split('\n').map(spec => `<div class="spec-item">${spec}</div>`).join('');
@@ -877,13 +993,8 @@
             });
 
             document.getElementById('category-products-container').innerHTML = html;
-
-            // Переходим на страницу категории
             showSection('category-view');
         }
-
-        // Логотип кликабелен
-        document.querySelector('.logo').onclick = () => showSection('home');
     </script>
 </body>
 </html>
