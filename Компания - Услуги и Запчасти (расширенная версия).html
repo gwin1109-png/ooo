@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Компания - Услуги и Запчасти</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Навигация */
+        nav {
+            background-color: #1a1a1a;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: stretch;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            background-color: #d32f2f;
+            color: white;
+            padding: 15px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .logo:hover {
+            background-color: #b71c1c;
+        }
+
+        .logo-icon {
+            font-size: 24px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            flex: 1;
+            margin: 0;
+        }
+
+        nav li {
+            flex: 1;
+            border-right: 1px solid #333;
+        }
+
+        nav li:last-child {
+            border-right: none;
+        }
+
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 18px 20px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background-color: #1a1a1a;
+        }
+
+        nav a:hover {
+            background-color: #333333;
+            color: #d32f2f;
+        }
+
+        /* Главная секция */
+        .hero {
+            background: linear-gradient(135deg, #000000 0%, #2a2a2a 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 3px solid #d32f2f;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* Главный контент */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #000000;
+            border-bottom: 3px solid #d32f2f;
+            padding-bottom: 20px;
+        }
+
+        /* Сетка товаров */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background-color: #f5f5f5;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: #d32f2f;
+        }
+
+        .product-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .product-icon:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .product-card:hover .product-icon {
+            animation: bounce 0.6s ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .product-card h3 {
+            font-size: 20px;
+            margin: 15px 0;
+            color: #000000;
+        }
+
+        .product-card p {
+            font-size: 14px;
+            color: #666666;
+            line-height: 1.6;
+        }
+
+        /* Услуги */
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .service-item {
+            background-color: #ffffff;
+            border-left: 5px solid #d32f2f;
+            padding: 25px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            transform: translateX(5px);
+        }
+
+        .service-item h3 {
+            color: #d32f2f;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .service-item p {
+            color: #555555;
+            line-height: 1.6;
+        }
+
+        /* Кнопки */
+        .btn {
+            display: inline-block;
+            background-color: #d32f2f;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background-color: #b71c1c;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(211, 47, 47, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: #333333;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #000000;
+        }
+
+        /* Контакты */
+        .contacts {
+            background-color: #f5f5f5;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .contact-item {
+            margin: 20px 0;
+            font-size: 16px;
+        }
+
+        .contact-item strong {
+            color: #d32f2f;
+        }
+
+        /* Футер */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+            border-top: 3px solid #d32f2f;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap;
+            }
+
+            nav li {
+                flex: 1 1 50%;
+                border-right: 1px solid #333;
+            }
+
+            nav li:nth-child(odd):nth-last-child(2),
+            nav li:nth-last-child(1) {
+                border-right: none;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        /* Скрытые секции (по умолчанию) */
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .main-content {
+            min-height: 400px;
+        }
+
+        /* Товары по категориям */
+        .category-products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .category-product-card {
+            background-color: #ffffff;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            border-color: #d32f2f;
+        }
+
+        .category-product-card h4 {
+            color: #000000;
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #d32f2f;
+            padding-bottom: 10px;
+        }
+
+        .category-product-card .specs {
+            font-size: 13px;
+            color: #666666;
+            margin: 12px 0;
+            line-height: 1.6;
+        }
+
+        .category-product-card .spec-item {
+            margin: 8px 0;
+            padding-left: 10px;
+            border-left: 3px solid #d32f2f;
+        }
+
+        .category-product-card .price {
+            color: #d32f2f;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        .back-button {
+            margin-bottom: 20px;
+        }
+
+        .back-button button {
+            background-color: #333333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button button:hover {
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                ГЛАВНАЯ
+            </div>
+            <ul>
+                <li><a href="#" onclick="showSection('services')">УСЛУГИ</a></li>
+                <li><a href="#" onclick="showSection('spare-parts')">ЗАПЧАСТИ</a></li>
+                <li><a href="#" onclick="showSection('catalog')">КАТАЛОГ</a></li>
+                <li><a href="#" onclick="showSection('manufacturing')">ПРОИЗВОДСТВО</a></li>
+                <li><a href="#" onclick="showSection('contacts')">КОНТАКТЫ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Главная страница -->
+    <div id="home" class="section active">
+        <div class="hero">
+            <h1>ВАША КОМПАНИЯ</h1>
+            <p>Качественные услуги, запчасти и решения для вашего бизнеса</p>
+        </div>
+
+        <div class="container main-content">
+            <h2 class="section-title">Избранные товары</h2>
+            <div class="products-grid">
+                <div class="product-card" onclick="showCategoryProducts('podshipniki')">
+                    <div class="product-icon">🎯</div>
+                    <h3>Подшипники</h3>
+                    <p>Высокое качество и надежность в работе</p>
+                </div>
+                <div class="product-card" onclick="showCategoryProducts('mufty')">
+                    <div class="product-icon">⚙️</div>
+                    <h3>Муфты</h3>
+                    <p>Оригинальные компоненты для всех моделей</p>
+                </div>
+                <div class="product-card" onclick="showCategoryProducts('cepi')">
+                    <div class="product-icon">🔗</div>
+                    <h3>Цепи и Ремни</h3>
+                    <p>Быстрая доставка и гарантия качества</p>
+                </div>
+                <div class="product-card" onclick="showCategoryProducts('krepezh')">
+                    <div class="product-icon">⚡</div>
+                    <h3>Крепежные элементы</h3>
+                    <p>Полный ассортимент для всех типов конструкций</p>
+                </div>
+                <div class="product-card" onclick="showCategoryProducts('smazi')">
+                    <div class="product-icon">🛢️</div>
+                    <h3>Смазочные материалы</h3>
+                    <p>Премиум масла и смазки для оборудования</p>
+                </div>
+                <div class="product-card" onclick="showCategoryProducts('elektro')">
+                    <div class="product-icon">💡</div>
+                    <h3>Электротехнические изделия</h3>
+                    <p>Двигатели и компоненты высочайшего качества</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Услуги -->
+    <div id="services" class="section">
+        <div class="hero">
+            <h1>УСЛУГИ</h1>
+            <p>Полный спектр услуг для вашего удобства</p>
+        </div>
+        <div class="container main-content">
+            <div class="services-list">
+                <div class="service-item">
+                    <h3>Техническое обслуживание</h3>
+                    <p>Полное техническое обслуживание оборудования с гарантией качества. Опытные специалисты проведут диагностику и устранят любые неполадки.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Консультации</h3>
+                    <p>Профессиональные консультации по выбору оборудования и запчастей. Наши специалисты помогут подобрать оптимальное решение для ваших нужд.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Доставка и монтаж</h3>
+                    <p>Быстрая доставка по всей стране с осуществлением монтажа на месте. Гарантированное качество и надежность доставки.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Модернизация</h3>
+                    <p>Модернизация существующего оборудования для повышения производительности. Использование современных технологий и материалов.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Техподдержка</h3>
+                    <p>24/7 техническая поддержка и консультации. Быстрое решение проблем и оказание помощи в любое время.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Гарантия</h3>
+                    <p>Полная гарантия на все виды работ и товары. Мы отвечаем за качество и надежность предоставляемых услуг.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Запчасти -->
+    <div id="spare-parts" class="section">
+        <div class="hero">
+            <h1>ЗАПЧАСТИ</h1>
+            <p>Оригинальные запчасти высочайшего качества</p>
+        </div>
+        <div class="container main-content">
+            <h2 class="section-title">Популярные запчасти</h2>
+            <div class="products-grid">
+                <div class="product-card" onclick="showCategoryProducts('podshipniki')">
+                    <div class="product-icon">🎯</div>
+                    <h3>Подшипники</h3>
+                    <p>Высокоточные подшипники для различных механизмов</p>
+                </div>
+                <div class="product-card" onclick="showCategoryProducts('mufty')">
+                    <div class="product-icon">⚙️</div>
+                    <h3>Муфты</h3>
+                    <p>Надежные муфты для передачи крутящего момента</p>
+                </div>
+                <div class="product-card" onclick="showCategoryProducts('cepi')">
+                    <div class="product-icon">🔗</div>
+                    <h3>Цепи и ремни</h3>
+                    <p>Прочные цепи и ремни производственного назначения</p>
+                </div>
+                <div class="product-card" onclick="showCategoryProducts('krepezh')">
+                    <div class="product-icon">⚡</div>
+                    <h3>Крепежные элементы</h3>
+                    <p>Полный ассортимент болтов, гаек и винтов</p>
+                </div>
+                <div class="product-card" onclick="showCategoryProducts('smazi')">
+                    <div class="product-icon">🛢️</div>
+                    <h3>Смазочные материалы</h3>
+                    <p>Качественные масла и смазки для оборудования</p>
+                </div>
+                <div class="product-card" onclick="showCategoryProducts('elektro')">
+                    <div class="product-icon">💡</div>
+                    <h3>Электротехнические изделия</h3>
+                    <p>Двигатели, реле и другие электротехнические компоненты</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn" onclick="alert('Ссылка на полный каталог будет добавлена')">Перейти в полный каталог</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Каталог товаров по категориям -->
+    <div id="category-view" class="section">
+        <div class="hero">
+            <h1 id="category-title">Категория товаров</h1>
+            <p id="category-description">Товары в данной категории</p>
+        </div>
+        <div class="container main-content">
+            <div class="back-button">
+                <button onclick="showSection('spare-parts')">← Назад к запчастям</button>
+            </div>
+            <div id="category-products-container" class="category-products-grid">
+                <!-- Товары будут вставлены здесь -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Каталог -->
+    <div id="catalog" class="section">
+        <div class="hero">
+            <h1>КАТАЛОГ</h1>
+            <p>Просмотрите весь наш ассортимент товаров и услуг</p>
+        </div>
+        <div class="container main-content">
+            <div style="text-align: center; padding: 60px 20px;">
+                <h2 style="font-size: 24px; margin-bottom: 30px;">Перейдите в полный каталог товаров</h2>
+                <p style="font-size: 16px; margin-bottom: 30px; color: #666;">Здесь вы найдете полный ассортимент нашей продукции с подробными описаниями и ценами</p>
+                <a href="https://example.com/catalog" target="_blank" class="btn" style="background-color: #333;">Открыть каталог</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Производство -->
+    <div id="manufacturing" class="section">
+        <div class="hero">
+            <h1>ПРОИЗВОДСТВО</h1>
+            <p>Современные технологии и высочайшие стандарты качества</p>
+        </div>
+        <div class="container main-content">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="service-item">
+                    <h3>О нашем производстве</h3>
+                    <p>Наше современное производство оснащено передовым оборудованием и использует инновационные технологии. Мы производим товары высочайшего качества, соответствующие международным стандартам.</p>
+                </div>
+                <div class="service-item" style="margin-top: 20px;">
+                    <h3>Контроль качества</h3>
+                    <p>Каждый этап производства проходит строгий контроль качества. Мы используем современные методы тестирования и проверки для обеспечения надежности продукции.</p>
+                </div>
+                <div class="service-item" style="margin-top: 20px;">
+                    <h3>Экологичность</h3>
+                    <p>Производство осуществляется с соблюдением экологических норм и требований. Мы заботимся об окружающей среде и используем переработанные материалы.</p>
+                </div>
+                <div class="service-item" style="margin-top: 20px;">
+                    <h3>Инновации</h3>
+                    <p>Постоянное развитие и внедрение новых технологий позволяет нам оставаться лидером на рынке. Мы инвестируем в исследования и разработки.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Контакты -->
+    <div id="contacts" class="section">
+        <div class="hero">
+            <h1>КОНТАКТЫ</h1>
+            <p>Мы всегда готовы помочь вам</p>
+        </div>
+        <div class="container main-content">
+            <div class="contacts">
+                <h2 style="margin-bottom: 30px; font-size: 28px;">Свяжитесь с нами</h2>
+                
+                <div class="contact-item">
+                    <strong>Email:</strong><br>
+                    info@vashakompaniya.ru
+                </div>
+                
+                <div class="contact-item">
+                    <strong>Телефон:</strong><br>
+                    +7 (XXX) XXX-XX-XX<br>
+                    +7 (XXX) XXX-XX-XX
+                </div>
+                
+                <div class="contact-item">
+                    <strong>📍 Адрес:</strong><br>
+                    г. Ваш город, ул. Ваша улица, д. XX
+                </div>
+
+                <div class="contact-item" style="margin-top: 30px;">
+                    <strong>Режим работы:</strong><br>
+                    Пн-Пт: 09:00 - 18:00<br>
+                    Сб: 10:00 - 16:00<br>
+                    Вс: выходной
+                </div>
+
+                <hr style="margin: 30px 0; border: none; border-top: 2px solid #d32f2f;">
+
+                <div style="margin-top: 30px;">
+                    <h3>Форма обратной связи</h3>
+                    <form style="margin-top: 20px; display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin-left: auto; margin-right: auto;">
+                        <input type="text" placeholder="Ваше имя" required style="padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;">
+                        <input type="email" placeholder="Ваш email" required style="padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;">
+                        <input type="tel" placeholder="Ваш телефон" style="padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;">
+                        <textarea placeholder="Ваше сообщение" rows="5" required style="padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;"></textarea>
+                        <button type="submit" class="btn">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <footer>
+        <p>&copy; 2026 Ваша Компания. Все права защищены.</p>
+        <p>Политика конфиденциальности | Условия использования</p>
+    </footer>
+
+    <script>
+        // Данные товаров по категориям
+        const categoryData = {
+            podshipniki: {
+                title: 'Подшипники',
+                description: 'Высокоточные подшипники для различных механизмов и машин',
+                products: [
+                    {
+                        name: 'Подшипник шариковый 6206',
+                        specs: 'Диаметр отверстия: 30 мм\nНаружный диаметр: 62 мм\nШирина: 16 мм\nГОСТ 520-2002',
+                        price: '450 ₽'
+                    },
+                    {
+                        name: 'Подшипник роликовый NU213',
+                        specs: 'Диаметр отверстия: 65 мм\nНаружный диаметр: 120 мм\nШирина: 23 мм\nПовышенная грузоподъемность',
+                        price: '680 ₽'
+                    },
+                    {
+                        name: 'Подшипник конический 30207',
+                        specs: 'Диаметр отверстия: 35 мм\nНаружный диаметр: 72 мм\nШирина: 19 мм\nМаксимальная скорость: 5000 об/мин',
+                        price: '520 ₽'
+                    },
+                    {
+                        name: 'Подшипник упорный 51205',
+                        specs: 'Диаметр отверстия: 25 мм\nНаружный диаметр: 47 мм\nВысота: 15 мм\nДля высоконагруженных механизмов',
+                        price: '390 ₽'
+                    }
+                ]
+            },
+            mufty: {
+                title: 'Муфты механические',
+                description: 'Надежные муфты для соединения и передачи крутящего момента',
+                products: [
+                    {
+                        name: 'Муфта кулачковая МУВП-160',
+                        specs: 'Номинальный момент: 160 Нм\nДиаметр вала: 30 мм\nВращающийся момент: до 16 кНм\nОпластиченные кулачки',
+                        price: '1200 ₽'
+                    },
+                    {
+                        name: 'Муфта упругая втулочно-пальцевая',
+                        specs: 'Диаметр: 80 мм\nМомент: до 50 Нм\nОтверстие вала: 25 мм\nКомпенсация несоосности',
+                        price: '850 ₽'
+                    },
+                    {
+                        name: 'Муфта фланцевая жесткая',
+                        specs: 'Диаметр фланца: 150 мм\nОтверстие для вала: 40 мм\nКоличество болтов: 6\nМаксимальный момент: 500 Нм',
+                        price: '2500 ₽'
+                    },
+                    {
+                        name: 'Муфта зубчатая соединительная',
+                        specs: 'Диаметр вала: 35 мм\nМомент передачи: 250 Нм\nКомпенсация углового смещения: до 1,5°\nМатериал: легированная сталь',
+                        price: '1650 ₽'
+                    }
+                ]
+            },
+            cepi: {
+                title: 'Цепи и ремни приводные',
+                description: 'Прочные цепи и ремни для передачи движения в механизмах',
+                products: [
+                    {
+                        name: 'Цепь приводная ПР-12.7',
+                        specs: 'Шаг цепи: 12,7 мм (1/2")\nОдинарная (однорядная)\nРазрушающая нагрузка: 8 кН\nДлина: 1 метр',
+                        price: '380 ₽'
+                    },
+                    {
+                        name: 'Цепь приводная ПР-19.05',
+                        specs: 'Шаг цепи: 19,05 мм (3/4")\nЧетырехрядная\nРазрушающая нагрузка: 31,8 кН\nДлина: 1 метр',
+                        price: '890 ₽'
+                    },
+                    {
+                        name: 'Ремень приводной клиновидный',
+                        specs: 'Профиль: А (13х8 мм)\nДлина: 1000 мм\nДиаметр шкива: 80-250 мм\nМатериал: каучук с кордом',
+                        price: '250 ₽'
+                    },
+                    {
+                        name: 'Цепь роликовая 2ПР-25.4',
+                        specs: 'Двухрядная цепь\nШаг: 25,4 мм (1")\nРазрушающая нагрузка: 120 кН\nДлина: 1 метр',
+                        price: '1420 ₽'
+                    }
+                ]
+            },
+            krepezh: {
+                title: 'Крепежные элементы',
+                description: 'Полный ассортимент болтов, гаек, винтов и шпилек',
+                products: [
+                    {
+                        name: 'Болт М10х30 класс прочности 8.8',
+                        specs: 'Метрический размер: М10х30\nКласс прочности: 8.8\nМатериал: сталь\nОцинкованный',
+                        price: '15 ₽'
+                    },
+                    {
+                        name: 'Гайка М16 шестигранная',
+                        specs: 'Размер: М16\nВысота: 13 мм\nКласс прочности: 8\nМатериал: углеродистая сталь',
+                        price: '25 ₽'
+                    },
+                    {
+                        name: 'Шпилька М20х100 класс 6.8',
+                        specs: 'Диаметр: М20\nДлина: 100 мм\nКласс прочности: 6.8\nОбе стороны резьба',
+                        price: '85 ₽'
+                    },
+                    {
+                        name: 'Винт с потайной головкой DIN 965',
+                        specs: 'Размер: М8х20\nДокумент: DIN 965\nМатериал: бронза\nУгол конусности: 90°',
+                        price: '35 ₽'
+                    }
+                ]
+            },
+            smazi: {
+                title: 'Смазочные материалы',
+                description: 'Масла и смазки высокого качества для всех типов оборудования',
+                products: [
+                    {
+                        name: 'Масло редукторное ИП-100',
+                        specs: 'Вязкость при 40°C: 100 сСт\nТемпература каплепадения: выше 180°C\nТип: индустриальное\nТара: 20 литров',
+                        price: '1200 ₽'
+                    },
+                    {
+                        name: 'Смазка литол-24',
+                        specs: 'Консистенция: NLGI 2\nТемпература применения: -20 до +60°C\nОсновной компонент: литиевый комплекс\nТара: 1 кг',
+                        price: '320 ₽'
+                    },
+                    {
+                        name: 'Масло моторное SAE 15W-40',
+                        specs: 'Вязкость: SAE 15W-40\nТип: минеральное\nАПИ: SJ/CF\nТемпература вспышки: выше 200°C',
+                        price: '450 ₽'
+                    },
+                    {
+                        name: 'Смазка ЦИАТИМ-201',
+                        specs: 'Консистенция: паста\nТемпература: -60 до +150°C\nПрименение: подшипники скольжения\nТара: 0,8 кг',
+                        price: '280 ₽'
+                    }
+                ]
+            },
+            elektro: {
+                title: 'Электротехнические изделия',
+                description: 'Электродвигатели, генераторы и электрические компоненты',
+                products: [
+                    {
+                        name: 'Электродвигатель АИР 100 L4',
+                        specs: 'Мощность: 4 кВт\nЧисло полюсов: 4\nОбороты: 1500 об/мин\nНапряжение: 380В\nКласс изоляции: F',
+                        price: '8500 ₽'
+                    },
+                    {
+                        name: 'Реле тепловое РТ-40',
+                        specs: 'Номинальный ток: 40 А\nДиапазон регулировки: 25-40 А\nКласс срабатывания: 10\nОснование: DIN-рейка',
+                        price: '420 ₽'
+                    },
+                    {
+                        name: 'Контактор КМ-100 трёхполюсный',
+                        specs: 'Номинальный ток: 100 А\nОсновной контакт: 3NO\nОсновное напряжение: 380В 50Гц\nМежполюсное расстояние: 27 мм',
+                        price: '950 ₽'
+                    },
+                    {
+                        name: 'Генератор переменного тока ГАСН-12В',
+                        specs: 'Выходное напряжение: 12В\nМощность: 0,8 кВт\nОбороты: 2000 об/мин\nОбмотка: трёхфазная',
+                        price: '2200 ₽'
+                    }
+                ]
+            }
+        };
+
+        function showSection(sectionId) {
+            // Скрываем все секции
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            // Показываем выбранную секцию
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+
+            // Показываем главную при клике на логотип
+            if (sectionId === 'home' || !sectionId) {
+                document.getElementById('home').classList.add('active');
+            }
+        }
+
+        function showCategoryProducts(categoryKey) {
+            const category = categoryData[categoryKey];
+            if (!category) return;
+
+            // Устанавливаем название и описание категории
+            document.getElementById('category-title').textContent = category.title;
+            document.getElementById('category-description').textContent = category.description;
+
+            // Генерируем HTML товаров
+            let html = '';
+            category.products.forEach(product => {
+                const specsHTML = product.specs.split('\n').map(spec => `<div class="spec-item">${spec}</div>`).join('');
+                html += `
+                    <div class="category-product-card">
+                        <h4>${product.name}</h4>
+                        <div class="specs">
+                            ${specsHTML}
+                        </div>
+                        <div class="price">${product.price}</div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('category-products-container').innerHTML = html;
+
+            // Переходим на страницу категории
+            showSection('category-view');
+        }
+
+        // Логотип кликабелен
+        document.querySelector('.logo').onclick = () => showSection('home');
+    </script>
+</body>
+</html>
