@@ -1,0 +1,185 @@
+{
+  "catalog": {
+    "brand": "РСМ",
+    "fullName": "ООО «Комбайновый завод «РОСТСЕЛЬМАШ»",
+    "description": "Ростсельмаш — ведущий российский производитель зерноуборочных комбайнов и сельскохозяйственной техники",
+    "totalModels": 27,
+    "models": [
+      {
+        "id": 1,
+        "name": "CK-5М-1 «Нива»",
+        "category": "Комбайны",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/ck_5m_1__niva__240", "http://oooagrorus.ru/avtocat/selhoztehnika/rsm/ck_5m_1__niva__1015"],
+        "catalogYear": "2002",
+        "image": "/avtocat/data/logo/rsm/niva.png"
+      },
+      {
+        "id": 2,
+        "name": "Vector-450 (Часть 1)",
+        "fullName": "Vector 450 (РСМ-102 Vector Track)",
+        "category": "Комбайны",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/vector_450__chast_1__2584"],
+        "catalogYear": "2018",
+        "image": "/avtocat/data/logo/rsm/vector450.png",
+        "partCount": 303
+      },
+      {
+        "id": 3,
+        "name": "Vector-450 (Часть 2)",
+        "fullName": "Vector 450 (РСМ-102 Vector Track)",
+        "category": "Комбайны",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/vector_450__chast_2__2585"],
+        "catalogYear": "2018",
+        "image": "/avtocat/data/logo/rsm/vector450.png"
+      },
+      {
+        "id": 4,
+        "name": "Дон (общий каталог)",
+        "description": "Содержит модели: 1500Б, 1500А, 1200, 1200Б",
+        "category": "Комбайны",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/don__obschij_katalog__160"],
+        "image": "/avtocat/data/logo/rsm/1500.png"
+      },
+      {
+        "id": 5,
+        "name": "Дон 1200",
+        "category": "Комбайны",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/don_1200_165"],
+        "image": "/avtocat/data/logo/rsm/1200.png"
+      },
+      {
+        "id": 6,
+        "name": "Дон 1200Б",
+        "category": "Комбайны",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/don_1200b_166"],
+        "image": "/avtocat/data/logo/rsm/1200b.png"
+      },
+      {
+        "id": 7,
+        "name": "Дон 1500А",
+        "category": "Комбайны",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/don_1500a_164"],
+        "image": "/avtocat/data/logo/rsm/1500a.png"
+      },
+      {
+        "id": 8,
+        "name": "Дон 1500Б",
+        "category": "Комбайны",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/don_1500b_163"],
+        "image": "/avtocat/data/logo/rsm/1500b.png"
+      },
+      {
+        "id": 9,
+        "name": "Жатка РСМ-081.27",
+        "category": "Жатки",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/zhatka_rsm_081_27_884", "http://oooagrorus.ru/avtocat/selhoztehnika/rsm/zhatka_rsm_081_27__variant__1039"],
+        "catalogYear": "2010",
+        "image": "/avtocat/data/logo/rsm/081.png"
+      },
+      {
+        "id": 10,
+        "name": "Жатка РСМ-100.70, 1401.70",
+        "category": "Жатки",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/zhatka_rsm_100_70__1401_70_2212"],
+        "catalogYear": "2007",
+        "image": "/avtocat/data/logo/rsm/100.70.png"
+      },
+      {
+        "id": 11,
+        "name": "РСМ-100 (Дон-680)",
+        "category": "Комбайны",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/rsm_100__don_680__1014"],
+        "catalogYear": "2002",
+        "image": "/avtocat/data/logo/rsm/don680.png"
+      },
+      {
+        "id": 12,
+        "name": "РСМ-100 (Дон-680М)",
+        "category": "Комбайны",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/rsm_100__don_680m__883"],
+        "catalogYear": "2010",
+        "image": "/avtocat/data/logo/rsm/don.png"
+      },
+      {
+        "id": 13,
+        "name": "РСМ-101 \"Вектор\"",
+        "category": "Комбайны",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/rsm_101__vektor__880", "http://oooagrorus.ru/avtocat/selhoztehnika/rsm/rsm_101__vektor___variant__1093"],
+        "catalogYear": "2010",
+        "image": "/avtocat/data/logo/rsm/vektor.png"
+      },
+      {
+        "id": 14,
+        "name": "РСМ-10Б \"Дон-1500Б\"",
+        "category": "Комбайны",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/rsm_10b__don_1500b__1046"],
+        "catalogYear": "2006",
+        "image": "/avtocat/data/logo/rsm/10b.png"
+      },
+      {
+        "id": 15,
+        "name": "РСМ-142 \"Acros\"",
+        "category": "Комбайны",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/rsm_142__acros__879", "http://oooagrorus.ru/avtocat/selhoztehnika/rsm/rsm_142__acros__variant_1078"],
+        "catalogYear": "2010",
+        "image": "/avtocat/data/logo/rsm/142.png"
+      },
+      {
+        "id": 16,
+        "name": "РСМ-161 (Часть 1)",
+        "category": "Комбайны",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/rsm_161__chast_1__2719"],
+        "catalogYear": "2015",
+        "image": "/avtocat/data/logo/rsm/rsm161.png"
+      },
+      {
+        "id": 17,
+        "name": "РСМ-161 (Часть 2)",
+        "category": "Комбайны",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/rsm_161__chast_2__2720"],
+        "catalogYear": "2015",
+        "image": "/avtocat/data/logo/rsm/rsm161.png"
+      },
+      {
+        "id": 18,
+        "name": "РСМ-181 \"Torum-740\"",
+        "category": "Комбайны",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/rsm_181__torum_740__874", "http://oooagrorus.ru/avtocat/selhoztehnika/rsm/rsm_181__torum_740___variant__1045"],
+        "catalogYear": "2010",
+        "image": "/avtocat/data/logo/rsm/torum.png"
+      },
+      {
+        "id": 19,
+        "name": "РСМ-1401",
+        "category": "Комбайны",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/rsm_1401_1044"],
+        "catalogYear": "2009",
+        "image": "/avtocat/data/logo/rsm/1401.png"
+      },
+      {
+        "id": 20,
+        "name": "Тележка РСМ-142.29",
+        "category": "Транспорт",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/telezhka_rsm_142_29_1104"],
+        "catalogYear": "2009",
+        "image": "/avtocat/data/logo/rsm/142.29.png"
+      },
+      {
+        "id": 21,
+        "name": "Энергосредство ЭС-1",
+        "category": "Транспорт",
+        "urls": ["http://oooagrorus.ru/avtocat/selhoztehnika/rsm/energosredstvo_es_1_1047"],
+        "catalogYear": "2009",
+        "image": "/avtocat/data/logo/rsm/ees-1.png"
+      }
+    ]
+  },
+  "statistics": {
+    "totalModels": 27,
+    "combiners": 21,
+    "headers": 3,
+    "transport": 3,
+    "catalogYears": "2002-2018",
+    "estimatedPartsTotal": "5000-15000"
+  }
+}
